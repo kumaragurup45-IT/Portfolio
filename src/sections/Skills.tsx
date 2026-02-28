@@ -13,7 +13,61 @@ interface Certificate {
 }
 
 const sampleCertificates: Certificate[] = [
- 
+  {
+    id: '1',
+    title: 'HTML & CSS Project',
+    issuer: 'GUVI | HCL',
+    date: 'Feb 2026',
+    image: '/src/photos/certificate/Guvi (HTML @  CSS).jpeg',
+    link: '/src/photos/certificate/Guvi (HTML @  CSS).jpeg',
+    tags: ['HTML', 'CSS', 'Web Development']
+  },
+  {
+    id: '2',
+    title: 'AI based Gesture Recognition in Embedded Systems',
+    issuer: 'Indian Info Tech',
+    date: 'Aug 2025',
+    image: '/src/photos/certificate/INFO-TECH (AI).png',
+    link: '/src/photos/certificate/INFO-TECH (AI).png',
+    tags: ['AI', 'Embedded Systems', 'Gesture Recognition']
+  },
+  {
+    id: '3',
+    title: 'Road Sign Detection using AI',
+    issuer: 'Indian Info Tech',
+    date: 'Aug 2025',
+    image: '/src/photos/certificate/INFO-TECH.png',
+    link: '/src/photos/certificate/INFO-TECH.png',
+    tags: ['AI', 'Computer Vision', 'Object Detection']
+  },
+  {
+    id: '4',
+    title: 'Presenting Data',
+    issuer: 'HP LIFE | HP Foundation',
+    date: 'Sep 2025',
+    image: '/src/photos/certificate/HP.png',
+    link: '/src/photos/certificate/HP.png',
+    tags: ['Data', 'Analysis', 'Presentation']
+  },
+  {
+    id: '5',
+    title: 'WEB DEVELOPMENT - HTML & CSS',
+    issuer: 'PRO AGGRESSIVE TECHIE',
+    date: 'Oct 2025',
+    image: '/src/photos/certificate/WEB DEVELOPMENT-HTML & CSS.png',
+    link: '/src/photos/certificate/WEB DEVELOPMENT-HTML & CSS.png',
+    tags: ['HTML', 'CSS', 'Web Development']
+  },
+  {
+    id: '6',
+    title: 'Blockchain Technology and its Applications',
+    issuer: 'Indian Info Tech',
+    date: 'Aug 2025',
+    image: '/src/photos/certificate/BLACK-CHAIN.png',
+    link: '/src/photos/certificate/BLACK-CHAIN.png',
+    tags: ['Blockchain', 'Web3', 'Decentralization']
+  },
+
 ];
 
 const CertificateCard = ({ cert, index, onFilter, onShowDetails }: { cert: Certificate; index: number; onFilter: () => void; onShowDetails: (e: React.MouseEvent) => void }) => {
