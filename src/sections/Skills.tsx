@@ -13,61 +13,7 @@ interface Certificate {
 }
 
 const sampleCertificates: Certificate[] = [
-  {
-    id: '1',
-    title: 'HTML & CSS Project',
-    issuer: 'GUVI | HCL',
-    date: 'Feb 2026',
-    image: '/src/photos/certificate/Guvi (HTML @  CSS).jpeg',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/Guvi%20(HTML%20@%20%20CSS).jpeg',
-    tags: ['HTML', 'CSS', 'Web Development']
-  },
-  {
-    id: '2',
-    title: 'AI based Gesture Recognition in Embedded Systems',
-    issuer: 'Indian Info Tech',
-    date: 'Aug 2025',
-    image: '/src/photos/certificate/INFO-TECH (AI).png',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/INFO-TECH%20(AI).png',
-    tags: ['AI', 'Embedded Systems', 'Gesture Recognition']
-  },
-  {
-    id: '3',
-    title: 'Road Sign Detection using AI',
-    issuer: 'Indian Info Tech',
-    date: 'Aug 2025',
-    image: '/src/photos/certificate/INFO-TECH.png',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/INFO-TECH.png',
-    tags: ['AI', 'Computer Vision', 'Object Detection']
-  },
-  {
-    id: '4',
-    title: 'Presenting Data',
-    issuer: 'HP LIFE | HP Foundation',
-    date: 'Sep 2025',
-    image: '/src/photos/certificate/HP.png',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/HP.png',
-    tags: ['Data', 'Analysis', 'Presentation']
-  },
-  {
-    id: '5',
-    title: 'WEB DEVELOPMENT - HTML & CSS',
-    issuer: 'PRO AGGRESSIVE TECHIE',
-    date: 'Oct 2025',
-    image: '/src/photos/certificate/WEB DEVELOPMENT-HTML & CSS.png',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/WEB%20DEVELOPMENT-HTML%20&%20CSS.png',
-    tags: ['HTML', 'CSS', 'Web Development']
-  },
-  { 
-    id: '6',
-    title: 'Blockchain Technology and its Applications',
-    issuer: 'Indian Info Tech',
-    date: 'Aug 2025',
-    image: '/src/photos/certificate/BLACK-CHAIN.png',
-    link: 'http://10.88.241.9:3001/src/photos/certificate/BLACK-CHAIN.png',
-    tags: ['Blockchain', 'Web3', 'Decentralization']
-  },
-
+ 
 ];
 
 const CertificateCard = ({ cert, index, onFilter, onShowDetails }: { cert: Certificate; index: number; onFilter: () => void; onShowDetails: (e: React.MouseEvent) => void }) => {
@@ -185,7 +131,7 @@ const CertificateModal = ({ cert, onClose, allSkills }: { cert: Certificate; onC
     const certTags = cert.tags.map(t => t.toLowerCase());
     return allSkills.filter(skill => {
       const skillName = skill.name.toLowerCase();
-      const skillTags = skill.tags.map((t: string) => t.toLowerCase());
+      const skillTags = (skill.tags || []).map((t: string) => t.toLowerCase());
       return certTags.some(tag => skillName.includes(tag) || tag.includes(skillName)) ||
         skillTags.some((st: string) => certTags.some(ct => st.includes(ct) || ct.includes(st)));
     });
@@ -474,7 +420,7 @@ const skillCategories = [
     skills: [
       { name: 'HTML', level: 90, tags: ['CSS', 'JavaScript'] },
       { name: 'React', level: 50, tags: ['Hooks', 'Context', 'Redux'] },
-    
+
 
     ]
   },
@@ -484,7 +430,7 @@ const skillCategories = [
     icon: <Database className="text-secondary" />,
     skills: [
       { name: 'Java', level: 65, tags: ['Spring Boot', 'OOP', 'Multithreading'] },
-  
+
 
     ]
   },
@@ -493,7 +439,7 @@ const skillCategories = [
     title: 'AI & Machine Learning',
     icon: <Brain className="text-accent" />,
     skills: [
-    
+
       { name: 'Python', level: 70, tags: ['Pandas', 'NumPy', 'Scikit-Learn'] },
 
 
@@ -504,8 +450,8 @@ const skillCategories = [
     title: 'DevOps & Tools',
     icon: <Terminal className="text-white/60" />,
     skills: [
-      { name: 'Git/GitHub', level: 85,ags: ['Version Control', 'Actions', 'Workflow'] },
-      
+      { name: 'Git/GitHub', level: 85, tags: ['Version Control', 'Actions', 'Workflow'] },
+
 
     ]
   }
@@ -533,7 +479,7 @@ export const Skills = () => {
       const certTags = activeCert.tags.map(t => t.toLowerCase());
       return allSkillsList.filter(skill => {
         const skillName = skill.name.toLowerCase();
-        const skillTags = skill.tags.map((t: string) => t.toLowerCase());
+        const skillTags = (skill.tags || []).map((t: string) => t.toLowerCase());
 
         // Match if skill name is in cert tags or any skill tag is in cert tags
         return certTags.some(tag => skillName.includes(tag) || tag.includes(skillName)) ||
@@ -574,8 +520,8 @@ export const Skills = () => {
             <button
               onClick={() => setActiveTab('skills')}
               className={`px-8 py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeTab === 'skills'
-                  ? 'bg-primary text-bg-dark shadow-[0_0_20px_rgba(0,245,255,0.3)]'
-                  : 'text-white/40 hover:text-white hover:bg-white/5'
+                ? 'bg-primary text-bg-dark shadow-[0_0_20px_rgba(0,245,255,0.3)]'
+                : 'text-white/40 hover:text-white hover:bg-white/5'
                 }`}
             >
               <Cpu size={18} />
@@ -584,8 +530,8 @@ export const Skills = () => {
             <button
               onClick={() => setActiveTab('certs')}
               className={`px-8 py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeTab === 'certs'
-                  ? 'bg-primary text-bg-dark shadow-[0_0_20px_rgba(0,245,255,0.3)]'
-                  : 'text-white/40 hover:text-white hover:bg-white/5'
+                ? 'bg-primary text-bg-dark shadow-[0_0_20px_rgba(0,245,255,0.3)]'
+                : 'text-white/40 hover:text-white hover:bg-white/5'
                 }`}
             >
               <Award size={18} />
